@@ -3,15 +3,18 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Actions\CalculateFinancingAction;
 
 class CalculateFinancingActionTest extends TestCase
 {
-    public function it_correctly_calculates_installment_value()
+    public function test_it_correctly_calculates_installment_value()
     {
-        $action = new CalculateFinancingAction();
+        $results =  CalculateFinancingAction::calculateInstallment(50000, 10000, 12);
 
-        $installmentValue = $action->execute(50000, 10000, 12);
-
-        $this->assertEquals(3981.6666666666665, $installmentValue);
+        $expectedResults = [
+            ['installments' => 12, 'installmentValue' => 3981.6666666666665],
+        ];
+    
+        $this->assertEquals($expectedResults, $results);
     }
 }

@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class SimulateFinancingTest extends TestCase
 {
-    public function it_calculates_financing_correctly()
+    public function test_it_calculates_financing_correctly()
     {
         $response = $this->postJson('/api/simulate-financing', [
             'vehiclePrice' => 50000,
@@ -19,10 +19,10 @@ class SimulateFinancingTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJson([
-                'simulations' => [
-                    ['installments' => 6, 'installmentValue' =>  7705.833333333333],
+                'installmentValue' => [
+                    ['installments' => 6, 'installmentValue' => 7705.833333333333],
                     ['installments' => 12, 'installmentValue' => 3981.6666666666665],
-                    ['installments' => 48, 'installmentValue' => 1028.0208333333333],
+                    ['installments' => 48, 'installmentValue' => 1028.0208333333333]
                 ]
             ]);
     }
