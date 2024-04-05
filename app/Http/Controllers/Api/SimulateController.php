@@ -10,14 +10,10 @@ class SimulateController extends Controller
 {
     public function simulate(Request $request)
     {
-        $vehiclePrice = $request->input('vehiclePrice');
-        $downPayment = $request->input('downPayment');
-        $installments = $request->input('installments');
-
         $installmentValue = CalculateFinancingAction::calculateInstallment(
-            $vehiclePrice,
-            $downPayment,
-            $installments,
+            vehiclePrice: $request->input('vehiclePrice'),
+            downPayment: $request->input('downPayment'),
+            installments: $request->input('installments')
         );
 
         return response()->json([
