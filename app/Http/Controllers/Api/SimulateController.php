@@ -8,9 +8,9 @@ use App\Actions\CalculateFinancingAction;
 
 class SimulateController extends Controller
 {
-    public function simulate(Request $request)
+    public function simulate(Request $request, CalculateFinancingAction $simulate)
     {
-        $installmentValue = CalculateFinancingAction::calculateInstallment(
+        $installmentValue = $simulate::calculateInstallment(
             vehiclePrice: $request->input('vehiclePrice'),
             downPayment: $request->input('downPayment'),
             installments: $request->input('installments')
