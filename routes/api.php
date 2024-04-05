@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\VehicleController;
+use App\Http\Controllers\Api\SimulateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('vehicles', VehicleController::class);
+
+Route::post('/simulate-financing', [SimulateController::class, 'simulate']);
