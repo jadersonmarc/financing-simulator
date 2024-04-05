@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    volumes:
+      - .:/var/www
+    build: .
+    container_name: laravel-app
+    depends_on:
+      - db
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: laravel
+      DB_USERNAME: user
+      DB_PASSWORD: password
+    ports:
+      - "8000:80"  # Mapeia a porta 80 do container para a porta 8000 do host.
+    networks:
+      - app-network
+
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: laravel
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Mapeia a porta 5432 do container para a porta 5432 do host.
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
