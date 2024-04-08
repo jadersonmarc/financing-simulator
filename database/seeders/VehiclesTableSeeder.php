@@ -16,10 +16,10 @@ class VehiclesTableSeeder extends Seeder
     {
         DB::table('vehicles')->insert([
             [
-                'photo' => 'url_para_foto_do_veiculo_1',
+                'photo' => 'https://cdn.motor1.com/images/mgl/7ZerpA/s1/vw-tcross-170tsi-1.jpg',
                 'city' => 'Cidade Exemplo 1',
-                'brand' => 'Marca Exemplo 1',
-                'model' => 'Modelo Exemplo 1',
+                'brand' => 'Volkswagen T-Cross',
+                'model' => '170 TSi ',
                 'description' => 'Descrição Exemplo 1',
                 'year' => 2020,
                 'mileage' => 15000,
@@ -30,10 +30,10 @@ class VehiclesTableSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'photo' => 'url_para_foto_do_veiculo_2',
+                'photo' => 'https://cdn.motor1.com/images/mgl/mMEQ8j/s3/2024-honda-civic-rs-jdm.jpg',
                 'city' => 'Cidade Exemplo 2',
-                'brand' => 'Marca Exemplo 2',
-                'model' => 'Modelo Exemplo 2',
+                'brand' => 'Honda Civic',
+                'model' => 'Sport',
                 'description' => 'Descrição Exemplo 2',
                 'year' => 2018,
                 'mileage' => 30000,
